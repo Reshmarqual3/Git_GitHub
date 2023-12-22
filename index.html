@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple HTML and JavaScript with "Database"</title>
+</head>
+<body>
+
+<h1>Hello, World!</h1>
+
+<button id="addButton">Add to "Database"</button>
+<button id="displayButton">Display "Database"</button>
+
+<ul id="databaseList"></ul>
+
+<script>
+  // JavaScript code with a "Database" (client-side array)
+  const database = [];
+
+  const addButton = document.getElementById('addButton');
+  const displayButton = document.getElementById('displayButton');
+  const databaseList = document.getElementById('databaseList');
+
+  addButton.addEventListener('click', function() {
+    const newItem = prompt('Enter an item to add to the "database":');
+    if (newItem) {
+      database.push(newItem);
+    }
+  });
+
+  displayButton.addEventListener('click', function() {
+    databaseList.innerHTML = ''; // Clear the list
+    database.forEach(function(item) {
+      const listItem = document.createElement('li');
+      listItem.textContent = item;
+      databaseList.appendChild(listItem);
+    });
+  });
+</script>
+
+</body>
+</html>
